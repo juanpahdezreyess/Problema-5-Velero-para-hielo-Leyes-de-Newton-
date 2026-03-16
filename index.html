@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Problema 13 • Energía Cinética de un Automóvil</title>
+<title>Problema 13 • Energía Cinética</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
 
-:root{
---bg:#0f172a;
---card:#1e293b;
---accent:#6366f1;
---accent-light:#818cf8;
---muted:#94a3b8;
---success:#10b981;
---gradient:linear-gradient(135deg,#6366f1,#8b5cf6,#d946ef);
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
 body{
-font-family:'Inter',sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e1b4b);
-color:#f1f5f9;
-padding:10px;
+font-family:Inter;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+margin:0;
+padding:20px;
 }
 
 .container{
@@ -44,146 +33,103 @@ margin:auto;
 
 .hero{
 text-align:center;
-padding:35px;
+padding:40px;
 border-radius:20px;
-background:rgba(99,102,241,.15);
-border:2px solid rgba(99,102,241,.35);
-margin-bottom:20px;
+background:linear-gradient(135deg,#6366f1,#8b5cf6);
+margin-bottom:30px;
 }
 
 .hero h1{
 font-size:3rem;
-font-weight:800;
-background:var(--gradient);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+margin:0;
 }
 
 .subtitle{
-color:var(--muted);
-font-size:1.2rem;
-margin-top:6px;
+opacity:.9;
 }
 
 .card{
-background:var(--card);
-border-radius:18px;
+background:#1e293b;
 padding:30px;
-margin-bottom:20px;
-border-left:6px solid var(--accent);
+border-radius:18px;
+margin-bottom:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
-.card-title{
-font-size:1.8rem;
-margin-bottom:15px;
-color:var(--accent-light);
-}
-
-.step{
-background:rgba(255,255,255,.06);
-border-radius:14px;
-padding:18px;
-margin:12px 0;
-}
-
-.step-title{
-font-size:1.3rem;
-font-weight:700;
-margin-bottom:6px;
+.card h2{
+color:#818cf8;
+margin-top:0;
 }
 
 .math{
 background:#020617;
+padding:18px;
 border-radius:12px;
-padding:16px;
-margin:12px 0;
+margin:15px 0;
 text-align:center;
-font-size:1.25rem;
-border:2px solid rgba(99,102,241,.4);
+font-size:1.3rem;
 }
 
 .diagram{
 background:#020617;
 border-radius:14px;
-padding:20px;
-margin:12px 0;
+padding:25px;
 font-family:monospace;
+line-height:1.4;
 white-space:pre;
 }
 
 .result{
-background:rgba(16,185,129,.15);
-border:2px solid rgba(16,185,129,.4);
-border-radius:14px;
+background:#064e3b;
 padding:20px;
-margin-top:15px;
-}
-
-.concept{
-background:rgba(99,102,241,.15);
-border-radius:14px;
-padding:18px;
+border-radius:12px;
+font-size:1.2rem;
 margin-top:15px;
 }
 
 canvas{
 background:#020617;
-padding:15px;
 border-radius:12px;
+padding:10px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<header class="hero">
-<h1>PROBLEMA 13</h1>
-<div class="subtitle">Energía Cinética de un Automóvil</div>
-</header>
-
-<section class="card">
-
-<h2 class="card-title">Datos del problema</h2>
-
-<div class="step">
-
-<p>Automóvil de masa:</p>
-
-<div class="math">
-\[
-m = 750\ kg
-\]
+<div class="hero">
+<h1>Problema 13</h1>
+<div class="subtitle">Energía cinética de un automóvil</div>
 </div>
 
-<p>Velocidad:</p>
+
+<div class="card">
+
+<h2>Datos del problema</h2>
 
 <div class="math">
-\[
-v = 65\ km/h
-\]
+\(m = 750\ kg\)
+</div>
+
+<div class="math">
+\(v = 65\ km/h\)
 </div>
 
 </div>
 
-</section>
 
-<section class="card">
+<div class="card">
 
-<h2 class="card-title">Conversión de unidades</h2>
-
-<div class="step">
+<h2>Conversión de velocidad</h2>
 
 <div class="math">
 
 \[
-v = 65\frac{km}{h}
-\]
-
-\[
-v = 65 \times \frac{1000}{3600}
+v = 65 \frac{km}{h}
 \]
 
 \[
@@ -194,11 +140,10 @@ v = 18.06\ m/s
 
 </div>
 
-</section>
 
-<section class="card">
+<div class="card">
 
-<h2 class="card-title">Cálculo de Energía Cinética</h2>
+<h2>Energía cinética</h2>
 
 <div class="math">
 
@@ -211,150 +156,128 @@ K = \frac{1}{2}(750)(18.06)^2
 \]
 
 \[
-K ≈ 1.22\times10^5\ J
+K \approx 1.22\times10^5\ J
 \]
 
 </div>
 
-</section>
+</div>
 
-<section class="card">
 
-<h2 class="card-title">Diagrama del automóvil</h2>
+<div class="card">
+
+<h2>Diagrama físico</h2>
 
 <div class="diagram">
 
-        +x →
-        
-     🚗  Automóvil
-        
-        v = 65 km/h
-        
-        Energía cinética:
-        
-        K = ½mv²
+             +x →
+
+                v = 65 km/h
+
+             ┌───────────┐
+             │           │
+             │   AUTO    │
+             │           │
+             └─────🚗────┘
+
+      Energía cinética del sistema
+
+             K = ½mv²
+
+Masa del vehículo = 750 kg
+Movimiento horizontal sobre la carretera
 
 </div>
 
-</section>
+</div>
 
-<section class="card">
 
-<h2 class="card-title">Relación Energía vs Velocidad</h2>
+<div class="card">
+
+<h2>Gráfica Energía vs Velocidad</h2>
 
 <canvas id="grafica"></canvas>
 
-</section>
-
-<section class="card">
-
-<h2 class="card-title">Preguntas del problema</h2>
-
-<div class="step">
-
-<b>1️⃣ Energía cinética:</b>
-
-<div class="math">
-\[
-K ≈ 1.22\times10^5\ J
-\]
 </div>
 
-</div>
 
-<div class="step">
+<div class="card">
 
-<b>2️⃣ Si la velocidad se reduce a la mitad</b>
-
-<div class="math">
-
-\[
-K \propto v^2
-\]
-
-\[
-(\frac{1}{2})^2 = \frac{1}{4}
-\]
-
-</div>
-
-La energía sería **4 veces menor**.
-
-</div>
-
-<div class="step">
-
-<b>3️⃣ Velocidad para tener la mitad de energía</b>
-
-<div class="math">
-
-\[
-v_2 = \frac{v_1}{\sqrt{2}}
-\]
-
-\[
-v_2 ≈ 46\ km/h
-\]
-
-</div>
-
-</div>
+<h2>Resultados</h2>
 
 <div class="result">
 
-<b>Resultados finales</b>
-
-<div class="math">
+Energía cinética del automóvil:
 
 \[
 K ≈ 1.22\times10^5\ J
 \]
 
+Velocidad para tener la mitad de energía:
+
 \[
-v_{1/2K} ≈ 46\ km/h
+v ≈ 46\ km/h
 \]
 
 </div>
 
 </div>
 
-<div class="concept">
-
-<b>Concepto clave</b>
-
-La **energía cinética depende del cuadrado de la velocidad**, por eso pequeños aumentos en velocidad producen grandes aumentos en energía.
-
 </div>
 
-</section>
-
-</div>
 
 <script>
 
-const ctx = document.getElementById('grafica');
+const velocidades=[10,20,30,40,50,60,70]
 
-new Chart(ctx, {
-type:'line',
+const energias=velocidades.map(v=>{
+let m=750
+let ms=v/3.6
+return (0.5*m*ms*ms)/1000
+})
+
+new Chart(document.getElementById("grafica"),{
+
+type:"line",
+
 data:{
-labels:[10,20,30,40,50,60,70],
+labels:velocidades,
 datasets:[{
-label:'Energía cinética relativa',
-data:[1,4,9,16,25,36,49],
-borderColor:'#818cf8',
+label:"Energía cinética (kJ)",
+data:energias,
+borderColor:"#818cf8",
+fill:false,
 tension:.3
 }]
 },
+
 options:{
 plugins:{
-legend:{labels:{color:'white'}}
+legend:{labels:{color:"white"}}
 },
+
 scales:{
-x:{ticks:{color:'white'}},
-y:{ticks:{color:'white'}}
+x:{
+title:{
+display:true,
+text:"Velocidad (km/h)",
+color:"white"
+},
+ticks:{color:"white"}
+},
+
+y:{
+title:{
+display:true,
+text:"Energía cinética (kJ)",
+color:"white"
+},
+ticks:{color:"white"}
 }
 }
-});
+}
+
+})
 
 </script>
 
