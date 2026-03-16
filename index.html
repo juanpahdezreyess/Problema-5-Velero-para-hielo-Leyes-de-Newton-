@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Problema 13 • Energía Cinética</title>
+<title>Problema 13 — Energía Cinética</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
@@ -67,7 +65,7 @@ padding:18px;
 border-radius:12px;
 margin:15px 0;
 text-align:center;
-font-size:1.3rem;
+font-size:1.25rem;
 }
 
 .diagram{
@@ -75,7 +73,7 @@ background:#020617;
 border-radius:14px;
 padding:25px;
 font-family:monospace;
-line-height:1.4;
+line-height:1.5;
 white-space:pre;
 }
 
@@ -112,11 +110,11 @@ padding:10px;
 <h2>Datos del problema</h2>
 
 <div class="math">
-\(m = 750\ kg\)
+\(m = 750\,kg\)
 </div>
 
 <div class="math">
-\(v = 65\ km/h\)
+\(v = 65\,km/h\)
 </div>
 
 </div>
@@ -129,11 +127,15 @@ padding:10px;
 <div class="math">
 
 \[
-v = 65 \frac{km}{h}
+v = 65\frac{km}{h}
 \]
 
 \[
-v = 18.06\ m/s
+v = 65\left(\frac{1000}{3600}\right)
+\]
+
+\[
+v = 18.06\,m/s
 \]
 
 </div>
@@ -156,7 +158,7 @@ K = \frac{1}{2}(750)(18.06)^2
 \]
 
 \[
-K \approx 1.22\times10^5\ J
+K \approx 1.22\times10^5\,J
 \]
 
 </div>
@@ -170,22 +172,123 @@ K \approx 1.22\times10^5\ J
 
 <div class="diagram">
 
-             +x →
+                 +x →
 
-                v = 65 km/h
+        velocidad = 65 km/h
 
-             ┌───────────┐
-             │           │
-             │   AUTO    │
-             │           │
-             └─────🚗────┘
+            _________
+           /       /|
+          / AUTO  / |
+         /_______/  |
+        |       |   |
+        |       |  /
+        |_______| /
 
-      Energía cinética del sistema
+            🚗
 
-             K = ½mv²
+Energía cinética del vehículo
 
-Masa del vehículo = 750 kg
-Movimiento horizontal sobre la carretera
+K = ½mv²
+
+m = 750 kg
+v = 65 km/h
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Factor de cambio de energía</h2>
+
+<div class="math">
+
+\[
+K \propto v^2
+\]
+
+Si:
+
+\[
+v_2 = \frac{v}{2}
+\]
+
+entonces:
+
+\[
+K_2 = \left(\frac{1}{2}\right)^2K
+\]
+
+\[
+K_2 = \frac{1}{4}K
+\]
+
+</div>
+
+La energía cinética se reduce **a una cuarta parte**.
+
+</div>
+
+
+<div class="card">
+
+<h2>Velocidad para tener la mitad de energía</h2>
+
+<div class="math">
+
+\[
+K \propto v^2
+\]
+
+\[
+\frac{K_2}{K_1}=\frac{v_2^2}{v_1^2}
+\]
+
+\[
+\frac{1}{2}=\frac{v_2^2}{v_1^2}
+\]
+
+\[
+v_2=\frac{v_1}{\sqrt2}
+\]
+
+\[
+v_2=\frac{65}{1.414}
+\]
+
+\[
+v_2\approx46\,km/h
+\]
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Resultados finales</h2>
+
+<div class="result">
+
+Energía cinética:
+
+\[
+K \approx 1.22\times10^5\,J
+\]
+
+Si la velocidad se reduce a la mitad:
+
+\[
+K=\frac{1}{4}K
+\]
+
+Velocidad para tener la mitad de energía:
+
+\[
+v\approx46\,km/h
+\]
 
 </div>
 
@@ -201,30 +304,7 @@ Movimiento horizontal sobre la carretera
 </div>
 
 
-<div class="card">
-
-<h2>Resultados</h2>
-
-<div class="result">
-
-Energía cinética del automóvil:
-
-\[
-K ≈ 1.22\times10^5\ J
-\]
-
-Velocidad para tener la mitad de energía:
-
-\[
-v ≈ 46\ km/h
-\]
-
 </div>
-
-</div>
-
-</div>
-
 
 <script>
 
@@ -246,7 +326,6 @@ datasets:[{
 label:"Energía cinética (kJ)",
 data:energias,
 borderColor:"#818cf8",
-fill:false,
 tension:.3
 }]
 },
@@ -275,6 +354,7 @@ color:"white"
 ticks:{color:"white"}
 }
 }
+
 }
 
 })
