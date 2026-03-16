@@ -1,332 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Problema 5: Velero para hielo (Leyes de Newton)</title>
+<meta charset="UTF-8">
+<title>Problema 13 - Energía Cinética</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+padding:20px;
+}
 
-  <style>
-    :root{
-      --bg:#0f172a;
-      --card:#1e293b;
-      --muted:#94a3b8;
-      --accent:#6366f1;
-      --accent-light:#818cf8;
-      --success:#10b981;
-      --warning:#f59e0b;
-      --gradient:linear-gradient(135deg,#6366f1,#8b5cf6,#d946ef);
-    }
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+margin-bottom:20px;
+}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Inter',sans-serif;
-      background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
-      color:#f1f5f9;
-      line-height:1.55;
-      min-height:100vh;
-      padding:6px;
-    }
-    .container{max-width:1100px;margin:0 auto}
+.math{
+background:#020617;
+padding:12px;
+border-radius:10px;
+text-align:center;
+margin:10px 0;
+font-size:18px;
+}
 
-    .hero{
-      text-align:center;
-      padding:34px 18px;
-      background:linear-gradient(135deg,rgba(99,102,241,.15) 0%,rgba(139,92,246,.15) 100%);
-      border-radius:20px;
-      margin-bottom:18px;
-      border:2px solid rgba(99,102,241,.30);
-    }
-    .hero-title{
-      font-size:3.2rem;
-      font-weight:800;
-      background:var(--gradient);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:8px;
-    }
-    .subtitle{
-      color:var(--muted);
-      font-size:1.25rem;
-    }
+.result{
+background:#064e3b;
+padding:20px;
+border-radius:12px;
+font-size:20px;
+text-align:center;
+}
 
-    .intro{
-      background:rgba(99,102,241,.15);
-      border-radius:20px;
-      padding:26px;
-      margin-bottom:18px;
-      border:2px solid rgba(99,102,241,.40);
-    }
-    .intro-title{
-      color:var(--accent-light);
-      font-size:2rem;
-      font-weight:800;
-      margin-bottom:12px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .intro-title::before{content:"🎯"}
-
-    .card{
-      background:var(--card);
-      border-radius:20px;
-      padding:30px;
-      margin-bottom:18px;
-      border-left:6px solid var(--accent);
-    }
-    .card-title{
-      font-size:2rem;
-      color:var(--accent-light);
-      margin-bottom:14px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .card-title::before{content:"📌"}
-
-    .step{
-      background:rgba(255,255,255,.08);
-      border-radius:15px;
-      padding:20px;
-      margin:14px 0;
-    }
-    .step-head{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:10px;
-    }
-    .step-number{
-      width:56px;height:56px;
-      background:var(--accent);
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:1.35rem;
-      flex:0 0 auto;
-    }
-    .step-title{
-      font-size:1.35rem;
-      font-weight:800;
-    }
-
-    .math{
-      background:rgba(15,23,42,.92);
-      border:3px solid rgba(99,102,241,.40);
-      border-radius:15px;
-      padding:18px;
-      margin:12px 0;
-      font-size:1.25rem;
-      text-align:center;
-      overflow-x:auto;
-    }
-
-    .explanation{
-      color:var(--muted);
-      font-size:1.1rem;
-      margin:8px 0;
-      line-height:1.7;
-    }
-
-    .calculation{
-      background:rgba(99,102,241,.15);
-      border:2px solid rgba(99,102,241,.40);
-      border-radius:15px;
-      padding:18px;
-      margin:12px 0;
-    }
-
-    .important-note{
-      background:rgba(245,158,11,.15);
-      border:2px solid rgba(245,158,11,.40);
-      border-radius:15px;
-      padding:16px;
-      margin:12px 0;
-    }
-    .important-note-title{
-      color:var(--warning);
-      font-weight:900;
-      font-size:1.2rem;
-      margin-bottom:8px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .important-note-title::before{content:"💡"}
-
-    .result{
-      background:rgba(16,185,129,.15);
-      border:3px solid rgba(16,185,129,.40);
-      border-radius:15px;
-      padding:20px;
-      margin-top:18px;
-    }
-    .result-title{
-      color:var(--success);
-      font-weight:900;
-      font-size:1.6rem;
-      margin-bottom:10px;
-    }
-
-    pre.ascii{
-      background:rgba(15,23,42,.92);
-      border:2px solid rgba(148,163,184,.35);
-      border-radius:15px;
-      padding:16px;
-      margin:12px 0;
-      overflow:auto;
-      font-size:0.95rem;
-      line-height:1.2;
-      color:#e2e8f0;
-    }
-
-    @media (max-width:768px){
-      body{padding:3px}
-      .hero-title{font-size:2.5rem}
-      .card{padding:20px 14px}
-      .intro{padding:18px}
-      .step-number{width:48px;height:48px;font-size:1.2rem}
-      .card-title,.intro-title{font-size:1.6rem}
-      .math{font-size:1.1rem}
-      .subtitle{font-size:1.1rem}
-    }
-  </style>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+pre{
+background:#020617;
+padding:15px;
+border-radius:10px;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
 
-    <header class="hero">
-      <h1 class="hero-title">PROBLEMA 5</h1>
-      <div class="subtitle">Velero para hielo • Superficie horizontal sin fricción</div>
-    </header>
+<h1>PROBLEMA 13</h1>
+<h2>Energía cinética de un automóvil</h2>
 
-    <section class="intro">
-      <div class="intro-title">OBJETIVO</div>
-      <p class="explanation">
-        Hallar la <strong style="color:var(--accent-light)">fuerza constante del viento \(F_W\)</strong>
-        que acelera al velero sobre hielo (sin fricción), usando cinemática y la 2ª Ley de Newton.
-      </p>
-      <p class="explanation">
-        Datos: en <strong>4.0 s</strong> pasa de reposo a <strong>6.0 m/s</strong>.
-        Masa total: <strong>200 kg</strong>.
-      </p>
-    </section>
+<div class="card">
 
-    <section class="card">
-      <h2 class="card-title">PLANTEAMIENTO Y DATOS</h2>
+<h2>OBJETIVO</h2>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-number">1</div>
-          <div class="step-title">Datos del problema</div>
-        </div>
+<p>
+Calcular la <b>energía cinética</b> de un automóvil de 750 kg que viaja
+a 65 km/h y analizar cómo cambia cuando la velocidad se reduce a la mitad.
+</p>
 
-        <div class="math">
-          \[
-            t = 4.0\ \text{s},\quad v_f = 6.0\ \text{m/s},\quad v_0 = 0,\quad m = 200\ \text{kg}
-          \]
-        </div>
+</div>
 
-        <p class="explanation">
-          La superficie es <strong>horizontal</strong> y <strong>sin fricción</strong>, así que en \(x\) la
-          fuerza neta será básicamente el viento.
-        </p>
-      </div>
+<div class="card">
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-number">2</div>
-          <div class="step-title">DCL (Diagrama de Cuerpo Libre) grande</div>
-        </div>
+<h2>DATOS</h2>
 
-        <pre class="ascii">
+<div class="math">
+
+m = 750 kg  
+<br>
+v = 65 km/h
+
+</div>
+
+<p>
+Primero convertimos la velocidad a <b>m/s</b>.
+</p>
+
+<div class="math">
+
+v = 65 \times \frac{1000}{3600}
+
+<br><br>
+
+v = 18.06 \; m/s
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>DCL (DIAGRAMA DE CUERPO LIBRE)</h2>
+
+<pre>
+
                 +y
                 ↑
-                │              N
-                │              ↑
-                │              │
-                │        ┌───────────┐
-                │        │  VELERO   │
-                │        └───────────┘
-                │              │
-                │              ↓
-                │              W = mg
-────────────────┼────────────────────────────────→ +x
-                │              F_W  →
-                │              a    →
- (superficie horizontal sin fricción: f = 0)
-        </pre>
+                │
+                │        N
+                │        ↑
+                │     ┌─────────┐
+                │     │  AUTO   │
+                │     └─────────┘
+                │        ↓
+                │        W = mg
+────────────────┼────────────────────────→ +x
+                │        v →
+                │
+                │
 
-        <div class="important-note">
-          <div class="important-note-title">LECTURA DEL DCL</div>
-          <p class="explanation">
-            En \(y\): \(N\) y \(W\) se equilibran (no hay aceleración vertical).<br>
-            En \(x\): la única fuerza es \(F_W\), por eso \(F_W = m a\).
-          </p>
-        </div>
-      </div>
+</pre>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-number">3</div>
-          <div class="step-title">Cinemática: hallar la aceleración</div>
-        </div>
+</div>
 
-        <div class="calculation">
-          <p class="explanation"><strong>Usamos:</strong> \(v_f = v_0 + a t\)</p>
-          <div class="math">
-            \[
-              6.0 = 0 + a(4.0)\quad\Rightarrow\quad a=\frac{6.0}{4.0}=1.5\ \text{m/s}^2
-            \]
-          </div>
-          <p class="explanation">
-            La aceleración es constante porque el viento ejerce una fuerza constante (y no hay fricción).
-          </p>
-        </div>
-      </div>
+<div class="card">
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-number">4</div>
-          <div class="step-title">2ª Ley de Newton en \(x\): hallar \(F_W\)</div>
-        </div>
+<h2>PASO 1: Fórmula de energía cinética</h2>
 
-        <div class="calculation">
-          <p class="explanation"><strong>En el eje \(x\):</strong> \(\sum F_x = m a\)</p>
-          <div class="math">
-            \[
-              F_W = m a = (200)(1.5) = 300\ \text{N}
-            \]
-          </div>
-          <p class="explanation">
-            Dirección: <strong>hacia \(+x\)</strong> (misma dirección del movimiento y la aceleración).
-          </p>
-        </div>
-      </div>
+<div class="math">
 
-      <div class="result">
-        <div class="result-title">RESULTADO FINAL</div>
-        <div class="math">
-          \[
-            a = 1.5\ \text{m/s}^2
-            \qquad\text{y}\qquad
-            F_W = 300\ \text{N}\ (\text{hacia adelante})
-          \]
-        </div>
-      </div>
+E_k = ½ m v²
 
-    </section>
-  </div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>PASO 2: Sustitución</h2>
+
+<div class="math">
+
+E_k = ½ (750)(18.06²)
+
+</div>
+
+<div class="math">
+
+E_k = 0.5(750)(326.16)
+
+</div>
+
+<div class="math">
+
+E_k ≈ 122310 \; J
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>PASO 3: Si la velocidad se reduce a la mitad</h2>
+
+<p>
+La energía cinética depende del <b>cuadrado de la velocidad</b>.
+</p>
+
+<div class="math">
+
+E_k ∝ v²
+
+</div>
+
+<div class="math">
+
+(½v)² = ¼ v²
+
+</div>
+
+<p>
+Entonces la energía cinética se reduce a <b>una cuarta parte</b>.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>PASO 4: Velocidad para tener la mitad de energía</h2>
+
+<div class="math">
+
+½E_k = ½ m v²
+
+</div>
+
+<div class="math">
+
+v₂ = v / √2
+
+</div>
+
+<div class="math">
+
+v₂ = 65 / 1.414
+
+</div>
+
+<div class="math">
+
+v₂ ≈ 46 \; km/h
+
+</div>
+
+</div>
+
+<div class="result">
+
+RESULTADOS FINALES
+
+<br><br>
+
+Energía cinética del automóvil:  
+<b>1.22 × 10⁵ J</b>
+
+<br><br>
+
+Si la velocidad se reduce a la mitad →  
+<b>la energía se vuelve ¼</b>
+
+<br><br>
+
+Velocidad para tener la mitad de energía:  
+<b>≈ 46 km/h</b>
+
+</div>
+
 </body>
 </html>
