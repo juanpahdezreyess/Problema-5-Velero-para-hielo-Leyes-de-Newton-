@@ -7,8 +7,7 @@
 
 <title>Problema 13 - Energía Cinética</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -18,81 +17,87 @@
 
 body{
 font-family:Inter;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
 margin:0;
-padding:20px;
+background:linear-gradient(120deg,#0f172a,#1e3a8a);
+color:white;
 }
 
 .container{
-max-width:1100px;
+width:95%;
 margin:auto;
 }
 
 .hero{
 text-align:center;
-padding:40px;
+padding:50px;
+background:linear-gradient(135deg,#22c55e,#3b82f6);
 border-radius:20px;
-background:linear-gradient(135deg,#6366f1,#8b5cf6);
-margin-bottom:30px;
+margin:20px 0;
 }
 
 .hero h1{
-margin:0;
 font-size:3rem;
+margin:0;
 }
 
 .subtitle{
+font-size:1.2rem;
+margin-top:10px;
+}
+
+.info{
+margin-top:10px;
+font-size:1rem;
 opacity:.9;
 }
 
 .card{
-background:#1e293b;
+background:#020617;
 padding:30px;
 border-radius:18px;
 margin-bottom:25px;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
+box-shadow:0 10px 30px rgba(0,0,0,.5);
 }
 
 .card h2{
-color:#818cf8;
-margin-top:0;
+color:#38bdf8;
 }
 
 .math{
 background:#020617;
-padding:18px;
-border-radius:12px;
-margin:15px 0;
+padding:15px;
+border-radius:10px;
 text-align:center;
 font-size:1.2rem;
 }
 
 .diagram{
 background:#020617;
-border-radius:14px;
-padding:25px;
+padding:20px;
+border-radius:12px;
 font-family:monospace;
-line-height:1.6;
 white-space:pre;
+line-height:1.5;
 }
 
 .result{
 background:#064e3b;
 padding:20px;
 border-radius:12px;
-font-size:1.2rem;
 margin-top:15px;
+font-size:1.2rem;
+}
+
+.inciso{
+border-left:5px solid #22c55e;
+padding-left:15px;
+margin-bottom:20px;
 }
 
 canvas{
 background:#020617;
-border-radius:12px;
+border-radius:10px;
 padding:10px;
-}
-
-p{
-line-height:1.6;
 }
 
 </style>
@@ -105,229 +110,158 @@ line-height:1.6;
 
 <div class="hero">
 <h1>Problema 13</h1>
-<div class="subtitle">Energía cinética de un automóvil</div>
+<div class="subtitle">Energía Cinética</div>
+<div class="info">
+Juan Pablo Jesús Hernández Reyes <br>
+Ingeniería en Mecatrónica
+</div>
 </div>
 
-
 <div class="card">
-
-<h2>Planteamiento del problema</h2>
-
+<h2>Planteamiento</h2>
 <p>
-Un automóvil de masa <b>750 kg</b> viaja por una autopista con una rapidez de 
-<b>65 km/h</b>.
+Un automóvil de <b>750 kg</b> viaja a <b>65 km/h</b>.
+Se desea analizar su energía cinética y cómo cambia con la velocidad.
 </p>
-
-<p>Se pide calcular:</p>
-
-<ul>
-<li>La energía cinética del automóvil.</li>
-<li>En qué factor disminuye la energía si la velocidad se reduce a la mitad.</li>
-<li>La velocidad necesaria para que la energía sea la mitad.</li>
-</ul>
-
 </div>
 
+<!-- INCISO A -->
+<div class="card inciso">
+<h2>Inciso A: Cálculo de la energía cinética</h2>
 
-<div class="card">
-
-<h2>Datos del problema</h2>
-
-<div class="math">
-\(m = 750 \, kg\)
-</div>
-
-<div class="math">
-\(v = 65 \, km/h\)
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h2>Conversión de velocidad</h2>
-
-<p>
-Primero convertimos la velocidad a metros por segundo porque la fórmula usa unidades del Sistema Internacional.
+<p><b>¿Qué se busca?</b><br>
+Calcular cuánta energía tiene el automóvil debido a su movimiento.
 </p>
 
 <div class="math">
-
 \[
-v = 65 \frac{km}{h}
+v = 65 \, km/h = 18.06 \, m/s
 \]
-
-\[
-v = 65\left(\frac{1000}{3600}\right)
-\]
-
-\[
-v = 18.06 \, m/s
-\]
-
 </div>
-
-</div>
-
-
-<div class="card">
-
-<h2>Cálculo de la energía cinética</h2>
-
-<p>La fórmula de energía cinética es:</p>
 
 <div class="math">
-
-\[
-K = \frac{1}{2}mv^2
-\]
-
-</div>
-
-<p>Sustituimos los valores:</p>
-
-<div class="math">
-
 \[
 K = \frac{1}{2}(750)(18.06)^2
 \]
+</div>
 
+<div class="math">
 \[
 K \approx 1.22 \times 10^5 \, J
 \]
-
 </div>
 
 </div>
 
-
+<!-- DIAGRAMA -->
 <div class="card">
-
-<h2>Explicación visual</h2>
+<h2>Diagrama</h2>
 
 <div class="diagram">
 
-Dirección del movimiento
+AUTOPISTA (vista superior)
 
-        → v
+============================================
 
-      🚗 automóvil
+        → → → dirección del movimiento
 
-masa = 750 kg
-velocidad = 65 km/h
+            _________
+           /         \
+          |   🚗     |   → 65 km/h
+           \_________/
 
-El automóvil tiene energía cinética
-porque está en movimiento.
+        masa = 750 kg
 
-K = ½mv²
+============================================
 
 </div>
 
 </div>
 
+<!-- INCISO B -->
+<div class="card inciso">
+<h2>Inciso B: Velocidad a la mitad</h2>
 
-<div class="card">
-
-<h2>Si la velocidad se reduce a la mitad</h2>
-
-<p>
-Primero calculamos la mitad de la velocidad:
+<p><b>¿Qué se busca?</b><br>
+Determinar cómo cambia la energía si la velocidad se reduce a la mitad.
 </p>
 
 <div class="math">
-
 \[
 65 / 2 = 32.5 \, km/h
 \]
-
 </div>
 
 <p>
-La energía cinética depende del cuadrado de la velocidad (\(v^2\)).  
-Esto significa que si la velocidad se divide entre 2, la energía se reduce más rápido.
+Como la energía depende del cuadrado de la velocidad, al dividir la velocidad entre 2:
 </p>
 
 <div class="math">
-
 \[
 (1/2)^2 = 1/4
 \]
-
 </div>
 
 <p>
-Por lo tanto, la energía cinética se vuelve <b>la cuarta parte</b>.
+Esto significa que la energía disminuye más rápido.
 </p>
 
 </div>
 
+<!-- INCISO C -->
+<div class="card inciso">
+<h2>Inciso C: Mitad de energía</h2>
 
-<div class="card">
-
-<h2>Velocidad para tener la mitad de energía</h2>
-
-<p>
-Ahora queremos que la energía sea la mitad de la original.
+<p><b>¿Qué se busca?</b><br>
+Encontrar la velocidad necesaria para que la energía sea la mitad.
 </p>
 
 <p>
 Como la energía depende de \(v^2\), la velocidad no se reduce exactamente a la mitad.
-Se calcula aproximadamente dividiendo entre 1.414.
 </p>
 
 <div class="math">
-
 \[
 v = 65 / 1.414
 \]
+</div>
 
+<div class="math">
 \[
 v \approx 46 \, km/h
 \]
-
 </div>
 
 </div>
 
-
+<!-- RESULTADOS -->
 <div class="card">
-
-<h2>Resultados finales</h2>
+<h2>Resultados Finales</h2>
 
 <div class="result">
+<b>Inciso A:</b><br>
+\(K \approx 1.22 \times 10^5 \, J\)
+</div>
 
-Energía cinética del automóvil:
+<div class="result">
+<b>Inciso B:</b><br>
+La energía se reduce a <b>¼</b>
+</div>
 
-\[
-K \approx 1.22\times10^5 \, J
-\]
-
-Si la velocidad se reduce a la mitad:
-
-La energía se vuelve **¼ de la original**.
-
-Velocidad para tener la mitad de energía:
-
-\[
-v \approx 46 \, km/h
-\]
-
+<div class="result">
+<b>Inciso C:</b><br>
+\(v \approx 46 \, km/h\)
 </div>
 
 </div>
 
-
+<!-- GRAFICA -->
 <div class="card">
-
 <h2>Relación entre velocidad y energía</h2>
-
 <canvas id="grafica"></canvas>
-
 </div>
 
 </div>
-
 
 <script>
 
@@ -346,41 +280,55 @@ type:"line",
 data:{
 labels:velocidades,
 datasets:[{
-label:"Energía cinética (kJ)",
+label:"Energía (kJ)",
 data:energias,
-borderColor:"#818cf8",
+borderColor:"#22c55e",
 tension:.3
 }]
 },
 
 options:{
 plugins:{
-legend:{labels:{color:"white"}}
+legend:{labels:{color:"white"}},
+tooltip:{enabled:false}
 },
 
 scales:{
 x:{
-title:{
-display:true,
-text:"Velocidad (km/h)",
-color:"white"
-},
+title:{display:true,text:"Velocidad (km/h)",color:"white"},
 ticks:{color:"white"}
 },
-
 y:{
-title:{
-display:true,
-text:"Energía cinética (kJ)",
-color:"white"
-},
+title:{display:true,text:"Energía (kJ)",color:"white"},
 ticks:{color:"white"}
 }
 }
-
 }
 
 })
+
+// Mostrar valores siempre en la gráfica
+const ctx = document.getElementById("grafica").getContext("2d");
+
+Chart.register({
+id:'labels',
+afterDatasetsDraw(chart){
+const {ctx}=chart;
+ctx.fillStyle="white";
+ctx.font="12px Inter";
+
+chart.data.datasets.forEach((dataset,i)=>{
+const meta=chart.getDatasetMeta(i);
+meta.data.forEach((point,index)=>{
+ctx.fillText(
+dataset.data[index].toFixed(0),
+point.x-10,
+point.y-10
+)
+})
+})
+}
+});
 
 </script>
 
