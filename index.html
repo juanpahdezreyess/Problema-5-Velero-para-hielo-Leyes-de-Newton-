@@ -113,7 +113,7 @@ padding:10px;
 <div class="subtitle">Energía Cinética</div>
 <div class="info">
 Juan Pablo Jesús Hernández Reyes <br>
-Ingeniería en Mecatrónica
+Alumno de Ingeniería en Mecatrónica
 </div>
 </div>
 
@@ -133,22 +133,40 @@ Se desea analizar su energía cinética y cómo cambia con la velocidad.
 Calcular cuánta energía tiene el automóvil debido a su movimiento.
 </p>
 
-<div class="math">
-\[
-v = 65 \, km/h = 18.06 \, m/s
-\]
-</div>
+<p><b>Conversión de unidades:</b></p>
 
 <div class="math">
+
+\[
+v = 65 \, \frac{km}{h}
+\]
+
+\[
+v = 65 \times \frac{1000 \, m}{1 \, km} \times \frac{1 \, h}{3600 \, s}
+\]
+
+\[
+v = 65 \times \frac{1000}{3600}
+\]
+
+\[
+v = 18.06 \, m/s
+\]
+
+</div>
+
+<p>Ahora calculamos la energía:</p>
+
+<div class="math">
+
 \[
 K = \frac{1}{2}(750)(18.06)^2
 \]
-</div>
 
-<div class="math">
 \[
 K \approx 1.22 \times 10^5 \, J
 \]
+
 </div>
 
 </div>
@@ -203,7 +221,7 @@ Como la energía depende del cuadrado de la velocidad, al dividir la velocidad e
 </div>
 
 <p>
-Esto significa que la energía disminuye más rápido.
+Esto significa que la energía disminuye <b>cuatro veces más rápido</b>.
 </p>
 
 </div>
@@ -273,7 +291,7 @@ let ms=v/3.6
 return (0.5*m*ms*ms)/1000
 })
 
-new Chart(document.getElementById("grafica"),{
+const chart = new Chart(document.getElementById("grafica"),{
 
 type:"line",
 
@@ -307,9 +325,7 @@ ticks:{color:"white"}
 
 })
 
-// Mostrar valores siempre en la gráfica
-const ctx = document.getElementById("grafica").getContext("2d");
-
+// Etiquetas visibles SIEMPRE
 Chart.register({
 id:'labels',
 afterDatasetsDraw(chart){
